@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .font-script {
+    font-family: 'Dancing Script', cursive;
+  }
+  .font-handwriting {
+    font-family: 'Caveat', cursive;
+  }
+  .font-serif-editorial {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+  .font-serif-luxury {
+    font-family: 'Cormorant Garamond', Garamond, Georgia, serif;
+  }
+  .font-typewriter {
+    font-family: 'Special Elite', monospace;
+  }
+  .font-sans-clean {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+}
+
+@keyframes float-petal {
+  0% {
+    transform: translate3d(0, -30px, 0) rotate(0deg) rotateX(0deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.85;
+    transform: translate3d(calc(var(--tx, 40px) * 0.35), 14vh, 0) rotate(calc(var(--rot, 180deg) * 0.25)) rotateX(20deg);
+  }
+  38% {
+    transform: translate3d(calc(var(--tx, 40px) * -0.4), 40vh, 0) rotate(calc(var(--rot, 180deg) * 0.55)) rotateY(35deg);
+  }
+  68% {
+    transform: translate3d(calc(var(--tx, 40px) * 0.65), 72vh, 0) rotate(calc(var(--rot, 180deg) * 0.85)) rotateX(-15deg);
+  }
+  92% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(calc(var(--tx, 40px) * 0.15), 108vh, 0) rotate(var(--rot, 360deg)) rotateY(0deg);
+    opacity: 0;
+  }
+}
+
+.animate-petal {
+  animation: float-petal var(--dur, 10s) cubic-bezier(0.37, 0, 0.63, 1) infinite;
+  animation-delay: var(--delay, 0s);
+  will-change: transform, opacity;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 8px 18px rgba(0,0,0,0.35));
+  }
+  50% {
+    transform: scale(1.045);
+    filter: drop-shadow(0 12px 24px rgba(225, 29, 72, 0.4));
+  }
+}
+
+.animate-seal-pulse {
+  animation: pulse-subtle 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  will-change: transform;
+}
+
+@keyframes candle-glow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.07) translate3d(6px, -4px, 0);
+  }
+}
+
+.animate-candle-glow {
+  animation: candle-glow 7.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  will-change: transform, opacity;
+}
+
+.ease-cinematic {
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ease-flap {
+  transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@keyframes sparkle-twinkle {
+  0%, 100% {
+    opacity: 0.25;
+    transform: scale(0.65) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15) rotate(45deg);
+  }
+}
+
+.animate-sparkle {
+  animation: sparkle-twinkle 3s ease-in-out infinite;
+}
+
+@keyframes soft-pulse-glow {
+  0%, 100% {
+    box-shadow: 0 10px 25px -4px rgba(225, 29, 72, 0.35), 0 0 18px rgba(244, 63, 94, 0.2);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 14px 32px -3px rgba(225, 29, 72, 0.48), 0 0 28px rgba(244, 63, 94, 0.38);
+    transform: scale(1.025);
+  }
+}
+
+.animate-pulse-glow {
+  animation: soft-pulse-glow 2.5s ease-in-out infinite;
+}
+
+@keyframes shimmer-move {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 100%);
+  background-size: 200% 100%;
+  animation: shimmer-move 3.2s infinite;
+}
+
+@keyframes drift-heart {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.6) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+    transform: translate3d(calc(var(--tx, 0px) * 0.35), -70px, 0) scale(1.15) rotate(calc(var(--rot, 0deg) * 0.3));
+  }
+  75% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate3d(var(--tx, 0px), -480px, 0) scale(var(--s, 1)) rotate(var(--rot, 0deg));
+    opacity: 0;
+  }
+}
+
+.animate-drift-heart {
+  animation: drift-heart var(--dur, 3s) cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .letter-paper-print {
+    box-shadow: none !important;
+    border: none !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}

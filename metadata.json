@@ -1,0 +1,6 @@
+{
+  "name": "LovePaper - Digital Love Letters & Keepsakes",
+  "description": "Create and send intimate, handcrafted digital love letters with personalized themes, romantic music, wax-sealed opening animations, and photo memories.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
